@@ -2,12 +2,12 @@ var request = require('request');
 var userarray = [];
 exports.GetUsers = function(res) {
     
-    var url = 'https://bouvet.cvpartner.com/api/v1/users?offset=';
+    var url = '';
     var offset = 0;
     var options = {
         url: url,
         headers: {
-            'Authorization': 'Token token="847b7c4828e94ff1806923aeba968eea"'
+            ''
         }
     };
 
