@@ -7,7 +7,7 @@ var users = require('./users');
 
 app.route('/users').get(function(Req, res) {
   console.log("HTTP GET on /users");
-  users.GetUsers();
+  users.GetUsers(res);
 });
 
 app.listen(5000, function () {
