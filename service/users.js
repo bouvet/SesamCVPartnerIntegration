@@ -21,6 +21,7 @@ exports.GetUsers = function(res) {
         
         
         if (!error && response.statusCode == 200) {
+            console.log(body);
             var info = JSON.parse(body);
             
             if(info.length > 0) {                
