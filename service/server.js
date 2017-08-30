@@ -7,7 +7,7 @@ var users = require('./users');
 var company = require('./company');
 var customers = require('./customers');
 var references = require('./references');
-var search = require('./search');
+
 
 app.route('/users').get(function(Req, res) {
   console.log("HTTP GET on /users");
@@ -26,13 +26,13 @@ app.route('/customers').get(function(Req, res) {
 
 app.route('/references').get(function(Req, res) {
   console.log("HTTP GET on /references");
-  references.GetReferences(res);
+  references.GetAllReferences(res);
 });
 
-app.route('/search').get(function(Req, res) {
-  console.log("HTTP GET on /search");
-  search.GetSearch(res);
-});
+// app.route('/search').get(function(Req, res) {
+//   console.log("HTTP GET on /search");
+//   search.GetAllReferences(res);
+// });
 
 app.listen(5000, function () {
     console.log('CVPartnerService listening on port ' +port +'.');
