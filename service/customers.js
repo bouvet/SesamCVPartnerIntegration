@@ -23,10 +23,10 @@ exports.GetCustomers = function(res) {
             if(customers != null) {         
                 Object(customers.customers).forEach(function (element, key, _array) {
                     element._updated = element.updated;                    
-                    console.log(element);
                     customerarray.push(element);
                  });
-
+                 console.log("Fullført traversering av kunder. ");
+                 console.log("userarray :" +customerarray.length);
                  res.writeHead(200, { "Content-Type": "application/json" });
                  res.end(JSON.stringify(customerarray));
             } else {
