@@ -19,7 +19,6 @@ exports.GetAllReferences = function (res) {
 
     rp(options)
     .then(function (content) {
-        console.log(content);
         var result = JSON.parse(content);
         res.writeHead(200, { "Content-Type": "application/json" });
         res.end(JSON.stringify(result));
@@ -34,6 +33,11 @@ exports.GetAllReferences = function (res) {
 
 exports.GetCVCustomers = function (res) {
     console.log(res.body);
-
+    var options = {
+        uri: cvcustomerurl,
+        headers: {
+            'Authorization': 'Token token=' + token
+        }
+    };
 
 }
