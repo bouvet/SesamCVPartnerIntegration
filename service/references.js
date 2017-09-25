@@ -30,23 +30,26 @@ exports.GetAllReferences = function (res) {
   
 }
 
+
+
+
    exports.GetCustomerProject = function (res) { 
     var references =  []; 
         var options1 = {
             uri: referenceurl,
             headers: {
-                'Authorization': 'Token token=' + token
+                'Authorization': 'Token token=' + token,
+                contentType: 'application/json'
             }
         };
 
         var urls = [];
         var request_array = [];
-
+        res.writeHead(200, {"Content-Type": "application/json" });
         rp(options1).then(function (content) {
             var result = JSON.parse(content);
-            res.writeHead(200, {"Content-Type": "application/json" });
             references = result[Object.keys(result)[0]];
-
+    
             var customerId = "";
             var projectId = "";
             var options2 = "";        
@@ -68,29 +71,29 @@ exports.GetAllReferences = function (res) {
             var timeout = 0;
             var count = 0;
             var result = []; 
-          
+      
             request_array = urls.map((item) => {                 
                 result[count++] = new Promise((resolve) => {   
                 setTimeout(function (){  
                     rp(item).then(function (content) {
-                        resultSet.push(content);                           
-                        resolve(content);        
+                        resultSet.push(JSON.parse(content));                           
+                        resolve(content);   
+                        console.log("Instances: " + resultSet.length);
                       })
                       .catch(function (err) {
                        console.log(err);
                       });
                       
-                }, timeout += 300);                                      
+                }, timeout += 250);                                      
                 });
             })
-          
-            Promise.all(result).then(values =>  {    
-                   res.writeHead(200, {"Content-Type": "application/json" });      
-                   res.end(JSON.stringify(resultSet));
+           
+            Promise.all(result).then(values =>  {  
+                  res.end(JSON.stringify(resultSet));  
              });
 
         }).catch(function (err) {
-            res.end(err);
+            res.end("Error: " + err);
             res.status(500);
            
         })
