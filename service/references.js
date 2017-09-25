@@ -84,7 +84,8 @@ exports.GetAllReferences = function (res) {
                 });
             })
           
-            Promise.all(result).then(values =>  {          
+            Promise.all(result).then(values =>  {    
+                   res.writeHead(200, {"Content-Type": "application/json" });      
                    res.end(JSON.stringify(resultSet));
              });
 
