@@ -16,7 +16,6 @@ exports.GetCustomers = function(res) {
             console.log("error : " +error + " : " +response.statusCode);
         }
         if (!error && response.statusCode == 200) { 
-            
             var customers = JSON.parse(body);
             if(customers != null) {         
                 Object(customers.customers).forEach(function (element, key, _array) {
@@ -28,12 +27,12 @@ exports.GetCustomers = function(res) {
                  res.writeHead(200, { "Content-Type": "application/json" });
                  res.end(JSON.stringify(customerarray));
             } else {
-                res.end("meeh");
-                res.status(500);
+                res.end("No Data");
+                res.status(response.statusCode);
             }
         } else {
-            res.end("meeh");
-            res.status(500);
+            res.end("No Data");
+            res.status(response.statusCode);
         }
     };
 
