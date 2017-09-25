@@ -6,7 +6,7 @@ exports.GetUsers = function(res) {
     
     var url = 'https://bouvet.cvpartner.com/api/v1/users?offset=';
     var offset = 0;
-    
+
     var options = {
         uri: url+offset,
         headers: {
@@ -18,8 +18,7 @@ exports.GetUsers = function(res) {
         if(error) {
             console.log("error : " +error + " : " +response.statusCode);
         }
-        
-        
+               
         if (!error && response.statusCode == 200) {
             var info = JSON.parse(body);
             

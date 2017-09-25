@@ -4,7 +4,6 @@ var customerarray = [];
 var url = 'https://bouvet.cvpartner.com/api/v2/company/cv/customers';
 
 exports.GetCustomers = function(res) {
-
     var options = {
         uri: url,
         headers: {
@@ -16,7 +15,6 @@ exports.GetCustomers = function(res) {
         if(error) {
             console.log("error : " +error + " : " +response.statusCode);
         }
-
         if (!error && response.statusCode == 200) { 
             
             var customers = JSON.parse(body);

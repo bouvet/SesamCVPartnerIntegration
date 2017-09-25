@@ -4,7 +4,6 @@ var app = express();
 var host = "0.0.0.0";
 var port = 5000;
 var users = require('./users');
-var company = require('./company');
 var customers = require('./customers');
 var references = require('./references');
 
@@ -12,11 +11,6 @@ var references = require('./references');
 app.route('/users').get(function(Req, res) {
   console.log("HTTP GET on /users");
   users.GetUsers(res);
-});
-
-app.route('/company').get(function(Req, res) {
-  console.log("HTTP GET on /company");
-  company.GetCompany(res);
 });
 
 app.route('/customers').get(function(Req, res) {
@@ -29,11 +23,11 @@ app.route('/references').get(function(Req, res) {
   references.GetAllReferences(res);
 });
 
-// app.route('/search').get(function(Req, res) {
-//   console.log("HTTP GET on /search");
-//   search.GetAllReferences(res);
-// });
+app.route('/projects').get(function(Req, res) {
+  console.log("HTTP GET on /projects");
+  references.GetCustomerProject(res);
+});
 
 app.listen(5000, function () {
-    console.log('CVPartnerService listening on port ' +port +'.');
+    console.log('CVPartnerService listening on port ' + port +'.');
 });
