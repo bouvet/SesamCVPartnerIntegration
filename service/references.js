@@ -40,7 +40,7 @@ exports.GetAllReferences = function (res) {
         };
 
         var urls = [];
-        let request_array = [];
+        var request_array = [];
 
         rp(options1).then(function (content) {
             var result = JSON.parse(content);
