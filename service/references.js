@@ -54,7 +54,7 @@ exports.GetAllReferences = function (res) {
             var projectId = "";
             var options2 = "";        
 
-                   references.forEach(function(element) {                   
+                    references.forEach(function(element) {                   
                     customerId = element["reference"]["company_customer_id"];
                     projectId = element["reference"]["company_project_id"];
                
