@@ -16,21 +16,19 @@ exports.GetAllReferences = function (res) {
         }
     };
 
-    rp(options)
-    .then(function (content) {
+    rp(options).then(function (content) {
         var result = JSON.parse(content);
+        result = result['references'];
+
+        console.log("Instances: " + result.length);
         res.writeHead(200, {"Content-Type": "application/json" });
         res.end(JSON.stringify(result));
     })
     .catch(function (err) {
-        res.end("No Data");
         res.status(500);
-     
+        res.end("No Data");
     });
-  
 }
-
-
 
 
    exports.GetCustomerProject = function (res) { 
