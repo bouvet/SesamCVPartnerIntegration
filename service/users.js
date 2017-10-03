@@ -5,8 +5,8 @@ var rp = require('request-promise');
 
 exports.GetUsers = function(res) {
     var userarray = [];
-    var url = 'https://bouvet.cvpartner.com/api/v1/users?offset=100&limit=1200';
-   
+    var url = 'https://bouvet.cvpartner.com/api/v1/users?limit=1400';
+   // var url = 'https://bouvet.cvpartner.com/api/v1/users?offset=100&limit=1200';
     var options = {
         uri: url,
         headers: {
