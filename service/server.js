@@ -8,27 +8,27 @@ var customers = require('./customers');
 var references = require('./references');
 
 
-app.route('/users').get(function(Req, res) {
+app.route('/users').get(function(req, res) {
   console.log("HTTP GET on /users");
   users.GetUsers(res);
 });
 
-app.route('/cv').get(function(Req, res) {
+app.route('/cv').get(function(req, res) {
   console.log("HTTP GET on /cv");
-  users.GetUserCv(res);
+  users.GetUserCv(req, res);
 });
 
-app.route('/customers').get(function(Req, res) {
+app.route('/customers').get(function(req, res) {
   console.log("HTTP GET on /customers");
   customers.GetCustomers(res);
 });
 
-app.route('/references').get(function(Req, res) {
+app.route('/references').get(function(req, res) {
   console.log("HTTP GET on /references");
   references.GetAllReferences(res);
 });
 
-app.route('/projects').get(function(Req, res) {
+app.route('/projects').get(function(req, res) {
   console.log("HTTP GET on /projects");
   references.GetCustomerProject(res);
 });

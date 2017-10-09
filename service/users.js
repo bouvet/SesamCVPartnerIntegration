@@ -5,7 +5,7 @@ var express = require('express');
 var userarray = [];
 
 
-  exports.GetUsers = function(res) {
+  exports.GetUsers = function( res) {
      userarray = [];
     var url = 'https://bouvet.cvpartner.com/api/v1/users?limit=1400';
    // var url = 'https://bouvet.cvpartner.com/api/v1/users?offset=100&limit=1200';
@@ -38,13 +38,15 @@ var userarray = [];
 
  
       // Henter cv'en til alle brukere i Region Bergen
-    exports.GetUserCv = function (res) { 
+    exports.GetUserCv = function (req,res) { 
         var urls = [];
         var userID = "";
         var cvId = "";
         var options = "";        
         var request_array = [];
         var regision = "";
+
+            if(req.method === "GET"){
 
         userarray.forEach(function(element) {                   
                 userID = element["user_id"];
@@ -88,6 +90,9 @@ var userarray = [];
                 })
                
                 Promise.all(result).then(values =>  {  
-                      res.end(JSON.stringify(resultSet));  
+                    res.writeHead(200, {"Content-Type": "application/json" });
+                    res.end(JSON.stringify(resultSet));  
                  });
+
+                }
              } 
