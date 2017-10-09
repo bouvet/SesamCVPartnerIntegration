@@ -35,7 +35,6 @@ var userarray = [];
     }
     
 
- 
       // Henter cv'en til alle brukere i Region Bergen
     exports.GetUserCv = function (req,res) { 
         var urls = [];
@@ -67,7 +66,6 @@ var userarray = [];
             
                 });
               
-                
                 var timeout = 0;
                 var count = 0;
                 var result = []; 
