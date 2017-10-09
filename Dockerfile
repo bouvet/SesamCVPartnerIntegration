@@ -1,4 +1,4 @@
-FROM node:4-slim
+FROM node:latest
 MAINTAINER Graham Moore "graham.moore@sesam.io"
 COPY ./service /service
 WORKDIR /service
