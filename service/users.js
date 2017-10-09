@@ -1,7 +1,6 @@
 var request = require('request');
 var token = process.env.CVPToken;
 var rp = require('request-promise');
-var express = require('express');
 var userarray = [];
 
 
