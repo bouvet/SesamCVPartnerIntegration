@@ -13,6 +13,11 @@ app.route('/users').get(function(Req, res) {
   users.GetUsers(res);
 });
 
+app.route('/cv').get(function(Req, res) {
+  console.log("HTTP GET on /cv");
+  users.GetUserCv(res);
+});
+
 app.route('/customers').get(function(Req, res) {
   console.log("HTTP GET on /customers");
   customers.GetCustomers(res);
