@@ -6,7 +6,13 @@ var port = 5000;
 var users = require('./users');
 var customers = require('./customers');
 var references = require('./references');
+var technology = require('./technology');
 
+
+app.route('/tech').get(function(req, res) {
+  console.log("HTTP GET on /users");
+  technology.getTechnologyCategories(res);
+});
 
 app.route('/users').get(function(req, res) {
   console.log("HTTP GET on /users");
@@ -32,7 +38,6 @@ app.route('/projects').get(function(req, res) {
   console.log("HTTP GET on /projects");
   references.GetCustomerProject(res);
 });
-
 
 
 
