@@ -34,7 +34,6 @@ var skills = [];
     }
     
 
-
     exports.getSkillCategories = function(res) {
         skillCategories = [];
         var url = 'https://bouvet.cvpartner.com/api/v1/unapproved/no/technologies/tags?limit=1000&offset=0';
@@ -46,6 +45,10 @@ var skills = [];
         };
             rp(options).then(function (content) {
                 var result = JSON.parse(content);
+                result = result['wrapper']["terms"];
+
+
+                console.log(result.length);
                 Object(result).forEach(function (element, key, _array) {                    
                     skillCategories.push(element);
                  });
