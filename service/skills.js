@@ -43,14 +43,19 @@ var skills = [];
             }
         };
         var result;
+        var count = 0;
             rp(options).then(function (content) {
                  result = JSON.parse(content);
                 result = result['wrapper']["terms"];
+                Object(result).forEach(function (element, key, _array) {                    
+                element.id = ++count;
+                
+                 });
 
                 res.writeHead(200, {"Content-Type": "application/json" });
                 res.end(JSON.stringify(result));
                 console.log("Instances: " + result.length);
-    
+                console.log(result);
             })
             .catch(function (err) {       
                 res.status(500);
