@@ -17,7 +17,7 @@ app.route('/skillstat').get(function(req, res) {
   skills.getSkillCategories(res);
 });
 
-//Getting the various skills listed in CV-partner
+//Getting the various skills listed in CV-partner e.g. react, node.js etc
 app.route('/skills').get(function(req, res) {
   console.log("HTTP GET on /skills");
   skills.getSkills(res);

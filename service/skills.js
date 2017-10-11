@@ -51,7 +51,7 @@ var skills = [];
                  });
     
                 res.writeHead(200, {"Content-Type": "application/json" });
-                res.end(JSON.stringify(skills));
+                res.end(JSON.stringify(skillCategories));
                 console.log("Instances: " + skillCategories.length);
     
             })
