@@ -35,15 +35,16 @@ var skills = [];
     
 
     exports.getSkillCategories = function(res) {
-         var url = 'https://bouvet.cvpartner.com/api/v1/unapproved/no/technologies/tags?limit=1000&offset=0';
+        var url = 'https://bouvet.cvpartner.com/api/v1/unapproved/no/technologies/tags?limit=1000&offset=0';
         var options = {
             uri: url,
             headers: {
                 'Authorization': 'Token token=' + token
             }
         };
+        var result;
             rp(options).then(function (content) {
-                var result = JSON.parse(content);
+                 result = JSON.parse(content);
                 result = result['wrapper']["terms"];
 
                 res.writeHead(200, {"Content-Type": "application/json" });
