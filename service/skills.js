@@ -47,8 +47,6 @@ var skills = [];
                 var result = JSON.parse(content);
                 result = result['wrapper']["terms"];
 
-
-                console.log(result.length);
                 Object(result).forEach(function (element, key, _array) {                    
                     skillCategories.push(element);
                  });
