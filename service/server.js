@@ -12,8 +12,8 @@ var skills = require('./skills');
 
 
 //Getting the skill categories listed in CV-partner with stats
-app.route('/skillStat').get(function(req, res) {
-  console.log("HTTP GET on /skillStat");
+app.route('/skillstat').get(function(req, res) {
+  console.log("HTTP GET on /skillstat");
   skills.getSkillCategories(res);
 });
 
