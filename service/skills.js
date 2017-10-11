@@ -35,8 +35,7 @@ var skills = [];
     
 
     exports.getSkillCategories = function(res) {
-        skillCategories = [];
-        var url = 'https://bouvet.cvpartner.com/api/v1/unapproved/no/technologies/tags?limit=1000&offset=0';
+         var url = 'https://bouvet.cvpartner.com/api/v1/unapproved/no/technologies/tags?limit=1000&offset=0';
         var options = {
             uri: url,
             headers: {
@@ -47,13 +46,9 @@ var skills = [];
                 var result = JSON.parse(content);
                 result = result['wrapper']["terms"];
 
-                Object(result).forEach(function (element, key, _array) {                    
-                    skillCategories.push(element);
-                 });
-    
                 res.writeHead(200, {"Content-Type": "application/json" });
-                res.end(JSON.stringify(skillCategories));
-                console.log("Instances: " + skillCategories.length);
+                res.end(JSON.stringify(result));
+                console.log("Instances: " + result.length);
     
             })
             .catch(function (err) {       
@@ -62,7 +57,7 @@ var skills = [];
             });    
     
     
-            return skillCategories;
+            return result;
         }
         
     
