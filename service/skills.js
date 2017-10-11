@@ -34,4 +34,36 @@ var skills = [];
     }
     
 
+
+    exports.getSkillCategories = function(res) {
+        skillCategories = [];
+        var url = 'https://bouvet.cvpartner.com/api/v1/unapproved/no/technologies/tags?limit=1000&offset=0';
+        var options = {
+            uri: url,
+            headers: {
+                'Authorization': 'Token token=' + token
+            }
+        };
+            rp(options).then(function (content) {
+                var result = JSON.parse(content);
+                Object(result).forEach(function (element, key, _array) {                    
+                    skillCategories.push(element);
+                 });
+    
+                res.writeHead(200, {"Content-Type": "application/json" });
+                res.end(JSON.stringify(skills));
+                console.log("Instances: " + skillCategories.length);
+    
+            })
+            .catch(function (err) {       
+                res.status(500);
+                res.end("No Data");  
+            });    
+    
+    
+            return skillCategories;
+        }
+        
+    
+    
   

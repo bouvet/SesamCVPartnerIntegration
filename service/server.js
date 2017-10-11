@@ -9,6 +9,14 @@ var references = require('./references');
 var technology = require('./technology');
 var skills = require('./skills');
 
+
+
+//Getting the skill categories listed in CV-partner with stats
+app.route('/skillStat').get(function(req, res) {
+  console.log("HTTP GET on /skillStat");
+  skills.getSkillCategories(res);
+});
+
 //Getting the various skills listed in CV-partner
 app.route('/skills').get(function(req, res) {
   console.log("HTTP GET on /skills");

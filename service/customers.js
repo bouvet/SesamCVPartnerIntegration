@@ -17,7 +17,6 @@ exports.GetCustomers = function(res) {
         rp(options).then(function (content) {
             var result = JSON.parse(content);
            
-          
             result = result['customers'];
             console.log(result.length);
             Object(result).forEach(function (element, key, _array) {                    
