@@ -34,3 +34,34 @@ exports.GetCustomers = function(res) {
          
         });    
     }
+
+    exports.GetIndustry = function(res) {
+        var customerarray = [];
+        var url = 'https://bouvet.cvpartner.com/api/v1/data_export/industries';
+       
+        var options = {
+            uri: url,
+            headers: {
+                'Authorization': 'Token token=' + token
+            }
+        };
+            rp(options).then(function (content) {
+                var result = JSON.parse(content);
+               
+                result = result['values'];
+                console.log(result.length);
+                Object(result).forEach(function (element, key, _array) {                    
+                    customerarray.push(element);
+                 });
+    
+                res.writeHead(200, {"Content-Type": "application/json" });
+                res.end(JSON.stringify(result));
+                console.log("Instances: " + customerarray.length);
+    
+            }).catch(function (err) { 
+                console.log(err);      
+                res.status(500);
+                res.end("No Data");
+             
+            });    
+        }
