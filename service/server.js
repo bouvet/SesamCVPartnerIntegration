@@ -40,6 +40,7 @@ app.route('/users').get(function(req, res) {
   users.GetUsers(res);
 });
 
+
 //Getting the user's cv from cv-partner
 app.route('/cv').get(function(req, res) {
   console.log("HTTP GET on /cv");
