@@ -12,6 +12,7 @@ var result;
 var customerarray = [];
 
 exports.GetCustomers = function(res) {
+        customerarray = null;
         rp(options).then(function (content) {
             result = JSON.parse(content);           
             result = result['customers'];
@@ -24,16 +25,18 @@ exports.GetCustomers = function(res) {
          
         })
         .finally(function(){
-            var promise = GetCustomerDetails(options);
-            promise.then((successmessage) => {
-                res.writeHead(200, {"Content-Type": "application/json" });
-                res.end(JSON.stringify(customerarray));
-            });
-            promise.catch((errormessage) => {
-                res.writeHead(500, {"Content-Type": "application/json" });
-                res.end("No Data");
-            }); 
-
+            // var promise = GetCustomerDetails(options);
+            // promise.then((successmessage) => {
+            //     res.writeHead(200, {"Content-Type": "application/json" });
+            //     res.end(JSON.stringify(customerarray));
+            //     console.log(customerarray.length);
+            // });
+            // promise.catch((errormessage) => {
+            //     res.writeHead(500, {"Content-Type": "application/json" });
+            //     res.end("No Data");
+            // }); 
+            res.writeHead(200, {"Content-Type": "application/json" });
+            res.end(JSON.stringify(result));
         });    
     }
 
@@ -57,7 +60,7 @@ exports.GetCustomers = function(res) {
             });
         })
     }
-    
+
     exports.GetIndustry = function(res) {
         var customerarray = [];
         var url = 'https://bouvet.cvpartner.com/api/v1/data_export/industries';
