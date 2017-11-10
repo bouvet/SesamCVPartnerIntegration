@@ -10,12 +10,17 @@ var technology = require('./technology');
 var skills = require('./skills');
 
 
-
 //Getting the skill categories listed in CV-partner with stats
 app.route('/skillstat').get(function(req, res) {
   console.log("HTTP GET on /skillstat");
   skills.getSkillCategories(res);
 });
+
+app.route('/industry').get(function(req, res) {
+  console.log("HTTP GET on /industry");
+  customers.GetIndustry(res);
+});
+
 
 //Getting the various skills listed in CV-partner e.g. react, node.js etc
 app.route('/skills').get(function(req, res) {
@@ -34,6 +39,7 @@ app.route('/users').get(function(req, res) {
   console.log("HTTP GET on /users");
   users.GetUsers(res);
 });
+
 
 //Getting the user's cv from cv-partner
 app.route('/cv').get(function(req, res) {
